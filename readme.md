@@ -19,7 +19,7 @@ And run `composer install`
 ## Third party dependencies
 
 1. PHP Unit is used for unit testing.
-2. PHP Coding Standards Fixer is usse for maintain `PSR-2` coding standerd
+2. [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) is usse for maintain `PSR-2` coding standerd
 
 ## Database
 
