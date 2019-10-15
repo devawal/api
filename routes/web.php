@@ -18,11 +18,8 @@ $router->get('/', function () use ($router) {
 // Show all task
 $router->get('tasks', 'TasksController@tasksList');
 
-// Create route group for api
-$router->group(['prefix' => 'api'], function () use ($router) {
-    // POST task
-    $router->post('task', 'TasksController@createTask');
+// POST task
+$router->post('task', 'TasksController@createTask');
 
-    // Update task with task ID
-    $router->put('task/{task_id}', 'TasksController@updateTask');
-});
+// Update task with task ID
+$router->put('task/{task_id}', 'TasksController@updateTask');

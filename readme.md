@@ -1,6 +1,6 @@
 # Simple Task Management Application
 
-A simple Lumen based REST full tasks management application with simple UI and API. Each task can have subtasks and tasks without subtasks have points. That means parent task has a sum of points from subtasks. What is more, if all subtasks of a task are done, then task also is done. If at least one subtask of a task marked as not done then it also becomes not done.
+A simple Lumen based lightweight task management application with simple UI and API endpoint. Each task can have subtasks and tasks without subtasks have points. That means parent task has a sum of points from subtasks. What is more, if all subtasks of a task are done, then task also is done. If at least one subtask of a task marked as not done then it also becomes not done.
 
 ## About this application
 
@@ -18,12 +18,13 @@ And run `composer install`
 
 ## Third party dependencies
 
-Only PHP Unit is used for unit testing.
+1. PHP Unit is used for unit testing.
+2. PHP Coding Standards Fixer is usse for maintain `PSR-2` coding standerd
 
 ## Database
 
 The application is using `MySQL` database and use default connection settings. To connect and create table at first create a database with a name and configure it in `.env` file. In this application I used `tasks_management`.
-Run the migration command by typing console command `php artisan migrate`
+Run the migration command by typing console command `php artisan migrate:install` it will create migration table then run `php artisan migrate` to install the migration in the database.
 
 ## User data source
 
@@ -44,7 +45,7 @@ protected $userSource = 'https://gitlab.iterato.lt/snippets/3/raw';
 
 ## Create task
 
-End point for create task is: `http://localhost/tasks_management/public/api/task`
+End point for create task is: `http://your_host/api/task` which accept HTTP `POST` request whth the following input parameters
 
 ### Input data
 ```
@@ -77,7 +78,7 @@ The application API will return `201` status code if it passed all validations o
 
 ## Update task
 
-End point for update task is: `http://localhost/tasks_management/public/api/task/{task_id}`
+End point for update task is: `http://your_host/api/task/{task_id}` which accept HTTP `PUT` request with the following input parameters
 
 ### Input data
 ```
@@ -99,7 +100,7 @@ All other internal errors will return `500` with error message
 
 ## View task list
 
-End point for all task: `http://localhost/tasks_management/public/tasks`
+End point for all task: `http://your_host/tasks`
 
 # Testing
 

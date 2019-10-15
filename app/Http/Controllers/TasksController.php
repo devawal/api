@@ -8,8 +8,8 @@ use App\Tasks;
 use Exception;
 
 /**
- * Tasks controller 
- * 
+ * Tasks controller
+ *
  * @author   Abdul awal <awal.ashu@gmail.com>
  */
 class TasksController extends Controller
@@ -31,15 +31,18 @@ class TasksController extends Controller
         // Call helper method for curl
         $user = Helpers::curl($this->userSource);
 
-        // Get all tasks data
-        $tasks = Tasks::getAllTasks($user);
+        // Get task list
+        $task_list = Tasks::select('id', 'title')->get();
 
-        return view('tasks', compact('tasks'));
+        // Get all task data
+        $task_data = Tasks::getAllTaskData($user);
+
+        return view('tasks', compact('task_list', 'task_data', 'user'));
     }
 
     /**
      * Create new task
-     * 
+     *
      * @param \Illuminate\Http\Request  $request
      * @return json
      */
@@ -68,7 +71,7 @@ class TasksController extends Controller
 
     /**
      * Update existing task
-     * 
+     *
      * @param int $taskID
      * @param \Illuminate\Http\Request  $request
      * @return json
@@ -118,7 +121,7 @@ class TasksController extends Controller
             // Check Maximum depth: 5
             $parentID = Tasks::getTaskByParentID($input['parent_id']);
             if ($parentID >= 5) {
-               $message['maximum_depth'] = 'Maximum depth: 5';
+                $message['maximum_depth'] = 'Maximum depth: 5';
             }
         }
 

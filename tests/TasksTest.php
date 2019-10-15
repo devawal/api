@@ -15,7 +15,7 @@ class TasksTest extends TestCase
     public function testTaskCreate()
     {
         $faker = Faker::create();
-        $parent_id = rand(null,10);
+        $parent_id = rand(null, 10);
         $data = [
             'parent_id' => $parent_id == 0 ? null : $parent_id,
             'user_id' => rand(1, 5),
@@ -39,8 +39,8 @@ class TasksTest extends TestCase
     public function testTaskUpdate()
     {
         $faker = Faker::create();
-        $task_id = rand(1,10);
-        $parent_id = rand(1,10);
+        $task_id = rand(1, 10);
+        $parent_id = rand(1, 10);
         $data = [
             'parent_id' => $parent_id,
             'user_id' => rand(1, 5),

@@ -18,12 +18,12 @@ class Tasks extends Model
     protected $fillable = ['gr_id', 'parent_id', 'user_id', 'title', 'points', 'is_done', 'created_at', 'updated_at'];
 
     /**
-     * Get all tasks
-     * 
+     * Get all task data
+     *
      * @param array $users
-     * @return collection object
+     * @return array
      */
-    public static function getAllTasks($users)
+    public static function getAllTaskData($users)
     {
         $userData = array();
         foreach ($users['data'] as $key => $u) {
@@ -91,7 +91,7 @@ class Tasks extends Model
         $parent = Tasks::where('parent_id', $taskID)->where('user_id', $userID)->first();
         if (!empty($parent)) {
             $task = Tasks::where('parent_id', $taskID)->where('user_id', $userID)->select(DB::raw("SUM(points) as total"))->first();
-        } else  {
+        } else {
             $task = Tasks::where('id', $taskID)->where('user_id', $userID)->select(DB::raw("SUM(points) as total"))->first();
         }
 

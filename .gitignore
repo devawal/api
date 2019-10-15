@@ -1,4 +1,9 @@
 /vendor
 /.idea
+/public/storage
+/storage/*.key
+/storage/debugbar/*
+/storage/framework/views/*
+/storage/framework/sessions/*
 Homestead.json
 Homestead.yaml

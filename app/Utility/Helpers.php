@@ -9,9 +9,9 @@ namespace App\Utility;
  */
 class Helpers
 {
-	/**
+    /**
      * Get CURL response
-     * 
+     *
      * @param string $url
      * @return object
      */
