@@ -13,7 +13,7 @@ A simple Lumen based lightweight task management application with simple UI and 
 
 ## Environment setup
 
-First clone this repository by using `git clone https://github.com/devawal/tasks-management.git`
+First clone this repository by using `git clone https://github.com/devawal/api.git`
 And run `composer install`
 
 ## Third party dependencies
